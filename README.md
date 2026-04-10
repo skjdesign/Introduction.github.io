@@ -1,2 +1,2 @@
-# Introduction.github.io
+# Introduction
 Hello
