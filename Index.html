@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sonali Khivasara Jogi — Brand &amp; Communication Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal: #67c9cb;
+  --teal-mid: #4db3b5;
+  --teal-deep: #2e9496;
+  --teal-pale: #c2eaeb;
+  --black: #080808;
+  --ink: #111111;
+  --dark: #141414;
+  --dark2: #1c1c1c;
+  --white: #ffffff;
+  --paper: #f7f6f3;
+  --mist: #eeede9;
+  --smoke: #deddd8;
+  --stone: #888882;
+  --serif: "Playfair Display", Georgia, serif;
+  --sans: "Inter Tight", system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--white); color: var(--ink); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+/* LAYOUT */
+.w { max-width: 1200px; margin: 0 auto; padding: 0 64px; }
+.sec { padding: 96px 0; }
+.sec-lg { padding: 120px 0; }
+
+/* EYEBROW */
+.eb { font-family: var(--sans); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.eb::before { content: ""; display: inline-block; width: 24px; height: 1px; background: currentColor; flex-shrink: 0; }
+.eb-teal { color: var(--teal-mid); }
+.eb-dark { color: var(--teal); }
+.eb-stone { color: var(--stone); }
+.eb-teal-bg { color: rgba(0,0,0,0.45); }
+.eb-teal-bg::before { background: rgba(0,0,0,0.4); }
+.eb-center { justify-content: center; }
+
+/* BUTTONS */
+.btn { display: inline-block; font-family: var(--sans); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; padding: 13px 28px; transition: all 0.2s; white-space: nowrap; }
+.btn-teal { background: var(--teal); color: var(--black); }
+.btn-teal:hover { background: var(--teal-pale); }
+.btn-black { background: var(--black); color: var(--teal); }
+.btn-black:hover { background: #222; }
+.btn-wout { border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.7); }
+.btn-wout:hover { border-color: var(--teal); color: var(--teal); }
+.btn-dout { border: 1px solid var(--smoke); color: var(--stone); }
+.btn-dout:hover { border-color: var(--teal-mid); color: var(--teal-mid); }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(8,8,8,0.93); backdrop-filter: blur(18px); border-bottom: 1px solid rgba(103,201,203,0.12); }
+.nav-w { max-width: 1200px; margin: 0 auto; padding: 0 64px; height: 62px; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-family: var(--serif); font-size: 1rem; font-weight: 700; color: var(--white); letter-spacing: 0.03em; }
+.nav-logo span { color: var(--teal); }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a { font-family: var(--sans); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--teal); }
+.nav-cta { font-family: var(--sans); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); border: 1px solid rgba(103,201,203,0.4); padding: 8px 20px; text-decoration: none; transition: all 0.2s; }
+.nav-cta:hover { background: var(--teal); color: var(--black); }
+
+/* HERO */
+#hero { background: var(--black); min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; position: relative; overflow: hidden; }
+.hero-ghost { position: absolute; bottom: -0.1em; left: -0.03em; font-family: var(--serif); font-size: clamp(18rem,28vw,34rem); font-weight: 900; line-height: 1; color: transparent; -webkit-text-stroke: 1px rgba(103,201,203,0.09); pointer-events: none; user-select: none; white-space: nowrap; }
+.hero-rail { position: absolute; top: 0; right: 0; width: 3px; height: 100%; background: linear-gradient(to bottom, transparent 5%, var(--teal) 30%, var(--teal) 70%, transparent 95%); }
+.hero-ring1 { position: absolute; top: 80px; right: 64px; width: 200px; height: 200px; border-radius: 50%; border: 1px solid rgba(103,201,203,0.1); pointer-events: none; }
+.hero-ring2 { position: absolute; top: 110px; right: 94px; width: 140px; height: 140px; border-radius: 50%; border: 1px solid rgba(103,201,203,0.06); pointer-events: none; }
+.hero-body { position: relative; z-index: 2; padding-top: 130px; padding-bottom: 48px; flex: 1; display: flex; flex-direction: column; justify-content: flex-end; }
+.hero-pretitle { font-family: var(--sans); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); display: flex; align-items: center; gap: 12px; margin-bottom: 18px; animation: fadeUp 0.5s 0.05s ease both; }
+.hero-pretitle::before { content: ""; display: inline-block; width: 24px; height: 1px; background: var(--teal); }
+.hero-name { font-family: var(--sans); font-size: 0.7rem; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.28); margin-bottom: 24px; animation: fadeUp 0.5s 0.1s ease both; }
+.hero-headline { font-family: var(--serif); font-weight: 900; font-size: clamp(4.5rem,8.5vw,10.5rem); line-height: 0.92; letter-spacing: -0.03em; color: var(--white); animation: fadeUp 0.7s 0.15s ease both; }
+.hero-headline .teal { color: var(--teal); }
+.hero-lower { display: grid; grid-template-columns: 1fr auto; gap: 60px; align-items: end; margin-top: 40px; padding-top: 36px; border-top: 1px solid rgba(103,201,203,0.14); animation: fadeUp 0.7s 0.28s ease both; }
+.hero-sub { font-family: var(--sans); font-size: 0.97rem; font-weight: 300; line-height: 1.8; color: rgba(255,255,255,0.45); max-width: 500px; }
+.hero-sub strong { color: rgba(255,255,255,0.8); font-weight: 500; }
+.hero-ctas { display: flex; gap: 12px; flex-shrink: 0; }
+.hero-svcbar { position: relative; z-index: 2; border-top: 1px solid rgba(103,201,203,0.1); background: rgba(103,201,203,0.04); animation: fadeUp 0.5s 0.38s ease both; }
+.svc-bar-w { max-width: 1200px; margin: 0 auto; padding: 0 64px; display: flex; flex-wrap: wrap; }
+.svc-tag { font-family: var(--sans); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.25); padding: 13px 24px 13px 0; margin-right: 24px; border-right: 1px solid rgba(255,255,255,0.05); transition: color 0.2s; white-space: nowrap; }
+.svc-tag:last-child { border-right: none; }
+.svc-tag:hover { color: var(--teal); }
+
+/* GRADIENT BRIDGES */
+.br { height: 80px; }
+.br-bh { background: linear-gradient(to bottom, #080808, #67c9cb); }
+.br-hi { background: linear-gradient(to bottom, #67c9cb, #f7f6f3); }
+.br-pd { background: linear-gradient(to bottom, #f7f6f3, #141414); }
+.br-dw { background: linear-gradient(to bottom, #141414, #ffffff); }
+.br-wb { background: linear-gradient(to bottom, #ffffff, #080808); }
+.br-bp { background: linear-gradient(to bottom, #080808, #f7f6f3); }
+.br-pw { background: linear-gradient(to bottom, #f7f6f3, #ffffff); }
+.br-p2 { background: linear-gradient(to bottom, #f7f6f3, #1c1c1c); }
+.br-2w { background: linear-gradient(to bottom, #1c1c1c, #ffffff); }
+.br-wt { background: linear-gradient(to bottom, #ffffff, #67c9cb); }
+.br-tp { background: linear-gradient(to bottom, #67c9cb, #f7f6f3); }
+.br-pb { background: linear-gradient(to bottom, #f7f6f3, #080808); }
+.br-bw { background: linear-gradient(to bottom, #080808, #ffffff); }
+.br-dd { background: linear-gradient(to bottom, #141414, #080808); }
+.br-wp { background: linear-gradient(to bottom, #ffffff, #f7f6f3); }
+.br-pd2 { background: linear-gradient(to bottom, #f7f6f3, #141414); }
+
+/* HOOK */
+#hook { background: var(--teal); padding: 72px 0; }
+.hook-grid { display: grid; grid-template-columns: 5fr 4fr; gap: 80px; align-items: center; }
+.hook-stmt { font-family: var(--serif); font-size: clamp(1.9rem,2.8vw,3rem); font-weight: 700; color: var(--black); line-height: 1.2; letter-spacing: -0.02em; }
+.hook-body { font-family: var(--sans); font-size: 0.93rem; font-weight: 300; color: rgba(0,0,0,0.62); line-height: 1.85; border-left: 2px solid rgba(0,0,0,0.15); padding-left: 28px; }
+.hook-body strong { font-weight: 600; color: rgba(0,0,0,0.85); }
+
+/* INSIGHT */
+#insight { background: var(--paper); }
+.insight-top { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-bottom: 52px; }
+.insight-h { font-family: var(--serif); font-size: clamp(2.2rem,3.2vw,3.8rem); font-weight: 700; color: var(--black); line-height: 1.1; letter-spacing: -0.025em; margin-top: 20px; }
+.insight-intro { font-family: var(--sans); font-size: 0.93rem; font-weight: 300; color: var(--stone); line-height: 1.85; padding-top: 6px; }
+.insight-intro strong { color: var(--ink); font-weight: 500; }
+.crack-row { display: grid; grid-template-columns: repeat(5,1fr); gap: 2px; margin-bottom: 52px; }
+.crack { background: var(--white); padding: 24px 20px 28px; border-top: 2px solid transparent; transition: border-color 0.2s; }
+.crack:hover { border-color: var(--teal); }
+.crack-n { font-family: var(--sans); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; color: var(--teal-mid); margin-bottom: 12px; }
+.crack-t { font-family: var(--sans); font-size: 0.85rem; font-weight: 300; color: var(--stone); line-height: 1.65; }
+.insight-resolve { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: center; border-top: 1px solid var(--smoke); padding-top: 44px; }
+.resolve-lbl { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; color: var(--black); line-height: 1.4; }
+.resolve-body { font-family: var(--sans); font-size: 0.9rem; font-weight: 300; color: var(--stone); line-height: 1.85; }
+.resolve-body strong { color: var(--black); font-weight: 500; }
+
+/* SOLUTION */
+#solution { background: var(--dark); }
+.solution-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+.sol-h { font-family: var(--serif); font-size: clamp(2rem,2.8vw,3rem); font-weight: 700; color: var(--white); line-height: 1.15; letter-spacing: -0.025em; margin: 20px 0 22px; }
+.sol-b { font-family: var(--sans); font-size: 0.92rem; font-weight: 300; color: rgba(255,255,255,0.46); line-height: 1.85; }
+.pillars { display: flex; flex-direction: column; gap: 2px; }
+.pillar { background: rgba(103,201,203,0.05); border: 1px solid rgba(103,201,203,0.12); padding: 22px 26px; display: flex; gap: 16px; align-items: flex-start; transition: background 0.2s; }
+.pillar:hover { background: rgba(103,201,203,0.09); }
+.pil-n { font-family: var(--sans); font-size: 0.6rem; font-weight: 700; color: var(--teal); width: 30px; height: 30px; border: 1px solid rgba(103,201,203,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.pil-name { font-family: var(--sans); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 6px; }
+.pil-text { font-family: var(--sans); font-size: 0.85rem; font-weight: 300; color: rgba(255,255,255,0.43); line-height: 1.65; }
+
+/* CREDENTIALS */
+#credentials { background: var(--white); }
+.cred-top { display: grid; grid-template-columns: 5fr 4fr; gap: 80px; align-items: end; margin-bottom: 60px; }
+.cred-h { font-family: var(--serif); font-size: clamp(2rem,2.8vw,3rem); font-weight: 700; color: var(--black); line-height: 1.15; letter-spacing: -0.025em; margin-top: 20px; }
+.cred-body { font-family: var(--sans); font-size: 0.9rem; font-weight: 300; color: var(--stone); line-height: 1.85; }
+.cred-body strong { color: var(--ink); font-weight: 500; }
+.stats-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; margin-bottom: 48px; }
+.stat-card { background: var(--paper); padding: 40px 32px; border-top: 3px solid transparent; transition: border-color 0.2s; }
+.stat-card:hover { border-color: var(--teal); }
+.stat-n { font-family: "Inter Tight", system-ui, sans-serif; font-size: 4rem; font-weight: 800; color: var(--teal); line-height: 1; letter-spacing: -0.04em; margin-bottom: 14px; }
+.stat-desc { font-family: var(--sans); font-size: 0.83rem; font-weight: 300; color: var(--stone); line-height: 1.55; }
+.ind-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.ind-tag { font-family: var(--sans); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 16px; border: 1px solid var(--smoke); color: var(--stone); transition: all 0.2s; cursor: default; }
+.ind-tag:hover { border-color: var(--teal-mid); color: var(--teal-mid); background: rgba(103,201,203,0.05); }
+
+/* ORIGIN */
+#origin { background: var(--black); position: relative; overflow: hidden; }
+.origin-glow { position: absolute; bottom: -180px; right: -180px; width: 560px; height: 560px; border-radius: 50%; background: radial-gradient(circle, rgba(103,201,203,0.07) 0%, transparent 65%); pointer-events: none; }
+.origin-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 100px; }
+.origin-title { font-family: var(--serif); font-size: clamp(1.9rem,2.6vw,2.8rem); font-weight: 700; color: var(--white); line-height: 1.15; letter-spacing: -0.025em; margin-top: 20px; position: sticky; top: 90px; }
+.origin-paras p { font-family: var(--sans); font-size: 0.93rem; font-weight: 300; color: rgba(255,255,255,0.46); line-height: 1.9; margin-bottom: 20px; }
+.origin-paras p:last-child { margin-bottom: 0; }
+.origin-paras strong { color: rgba(255,255,255,0.8); font-weight: 400; }
+.origin-pull { margin-top: 36px; padding: 24px 28px; border-left: 3px solid var(--teal); background: rgba(103,201,203,0.05); }
+.origin-pull p { font-family: var(--serif); font-size: 1.1rem; font-weight: 500; color: rgba(255,255,255,0.85); font-style: italic; line-height: 1.6; margin-bottom: 0 !important; }
+
+/* WHY ME */
+#why-me { background: var(--paper); }
+.whyme-top { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 56px; }
+.whyme-h { font-family: var(--serif); font-size: clamp(2rem,2.8vw,3rem); font-weight: 700; color: var(--black); line-height: 1.15; letter-spacing: -0.025em; margin-top: 20px; }
+.whyme-intro { font-family: var(--sans); font-size: 0.92rem; font-weight: 300; color: var(--stone); line-height: 1.85; }
+.whyme-intro strong { color: var(--ink); font-weight: 500; }
+.wm-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 2px; }
+.wm-card { background: var(--white); padding: 32px 28px; display: flex; gap: 18px; border-top: 2px solid transparent; transition: border-color 0.2s; }
+.wm-card:hover { border-color: var(--teal); }
+.wm-n { font-family: "Inter Tight", system-ui, sans-serif; font-size: 1.8rem; font-weight: 800; color: rgba(103,201,203,0.3); line-height: 1; flex-shrink: 0; width: 36px; letter-spacing: -0.04em; }
+.wm-title { font-family: var(--sans); font-size: 0.88rem; font-weight: 600; color: var(--black); margin-bottom: 7px; }
+.wm-text { font-family: var(--sans); font-size: 0.84rem; font-weight: 300; color: var(--stone); line-height: 1.65; }
+
+/* SERVICES */
+#services { background: var(--dark2); }
+.svc-header { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: end; margin-bottom: 56px; }
+.svc-h { font-family: var(--serif); font-size: clamp(2rem,2.8vw,3rem); font-weight: 700; color: var(--white); line-height: 1.15; letter-spacing: -0.025em; margin-top: 20px; }
+.svc-intro { font-family: var(--sans); font-size: 0.9rem; font-weight: 300; color: rgba(255,255,255,0.38); line-height: 1.85; }
+.svc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(255,255,255,0.04); }
+.svc-card { background: var(--dark2); padding: 36px 32px 40px; position: relative; transition: background 0.2s; }
+.svc-card::after { content: ""; position: absolute; top: -1px; left: 0; right: 0; height: 2px; background: var(--teal); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease; }
+.svc-card:hover { background: rgba(103,201,203,0.05); }
+.svc-card:hover::after { transform: scaleX(1); }
+.svc-n { font-family: "Inter Tight", system-ui, sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; color: rgba(103,201,203,0.4); margin-bottom: 16px; }
+.svc-name { font-family: var(--serif); font-size: 1.18rem; font-weight: 600; color: var(--white); margin-bottom: 12px; line-height: 1.3; }
+.svc-desc { font-family: var(--sans); font-size: 0.83rem; font-weight: 300; color: rgba(255,255,255,0.36); line-height: 1.7; }
+
+/* SKILLS */
+#skills { background: var(--white); }
+.skills-top { margin-bottom: 56px; }
+.skills-h { font-family: var(--serif); font-size: clamp(1.8rem,2.5vw,2.8rem); font-weight: 700; color: var(--black); line-height: 1.2; letter-spacing: -0.02em; margin-top: 20px; max-width: 540px; }
+.skills-note { font-family: var(--sans); font-size: 0.83rem; font-weight: 300; color: var(--stone); margin-top: 10px; font-style: italic; }
+.skill-grid { display: grid; grid-template-columns: repeat(3,1fr); border: 1px solid var(--smoke); }
+.skill-item { padding: 28px; border-right: 1px solid var(--smoke); border-bottom: 1px solid var(--smoke); transition: background 0.2s; }
+.skill-item:hover { background: rgba(103,201,203,0.04); }
+.skill-item:nth-child(3n) { border-right: none; }
+.skill-item:nth-last-child(-n+3) { border-bottom: none; }
+.skill-lbl { font-family: var(--sans); font-size: 0.64rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal-mid); margin-bottom: 11px; display: flex; align-items: center; gap: 10px; }
+.skill-lbl::before { content: ""; display: inline-block; width: 16px; height: 1px; background: var(--teal-mid); }
+.skill-text { font-family: var(--sans); font-size: 0.84rem; font-weight: 300; color: var(--stone); line-height: 1.7; }
+
+/* RIGHT FIT */
+#right-fit { background: var(--teal); }
+.fit-top { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-bottom: 52px; align-items: end; }
+.fit-h { font-family: var(--serif); font-size: clamp(2rem,2.8vw,3rem); font-weight: 700; color: var(--black); line-height: 1.15; letter-spacing: -0.025em; margin-top: 20px; }
+.fit-intro { font-family: var(--sans); font-size: 0.92rem; font-weight: 400; color: rgba(0,0,0,0.56); line-height: 1.85; }
+.fit-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; margin-bottom: 52px; }
+.fit-item { background: rgba(0,0,0,0.07); padding: 24px 22px 28px; transition: background 0.2s; }
+.fit-item:hover { background: rgba(0,0,0,0.12); }
+.fit-arrow { font-family: var(--sans); font-size: 1rem; color: rgba(0,0,0,0.4); margin-bottom: 11px; }
+.fit-text { font-family: var(--sans); font-size: 0.84rem; font-weight: 400; color: rgba(0,0,0,0.62); line-height: 1.6; }
+.fit-cta { text-align: center; border-top: 1px solid rgba(0,0,0,0.12); padding-top: 44px; }
+.fit-cta p { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--black); margin-bottom: 22px; font-style: italic; }
+
+/* PORTFOLIO */
+#portfolio { background: var(--paper); }
+.port-top { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 52px; }
+.port-h { font-family: var(--serif); font-size: clamp(2rem,2.8vw,3rem); font-weight: 700; color: var(--black); line-height: 1.15; letter-spacing: -0.025em; margin-top: 20px; }
+.port-sub { font-family: var(--sans); font-size: 0.9rem; font-weight: 300; color: var(--stone); line-height: 1.8; }
+.port-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
+.port-card { background: var(--white); overflow: hidden; }
+.port-img { aspect-ratio: 4/3; background: var(--mist); display: flex; align-items: center; justify-content: center; }
+.port-img-in { display: flex; flex-direction: column; align-items: center; gap: 9px; opacity: 0.38; }
+.port-icon { width: 38px; height: 38px; border: 2px solid var(--teal-mid); border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--teal-mid); }
+.port-icon-lbl { font-family: var(--sans); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone); }
+.port-body { padding: 22px 22px 26px; border-top: 2px solid var(--mist); }
+.port-cat { font-family: var(--sans); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal-mid); margin-bottom: 6px; }
+.port-name { font-family: var(--serif); font-size: 1rem; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+.port-ind { font-family: var(--sans); font-size: 0.76rem; font-weight: 300; color: var(--stone); margin-bottom: 11px; }
+.port-out { font-family: var(--sans); font-size: 0.81rem; font-weight: 300; color: var(--stone); line-height: 1.6; }
+
+/* PROCESS */
+#process { background: var(--black); }
+.proc-top { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: end; margin-bottom: 56px; }
+.proc-h { font-family: var(--serif); font-size: clamp(2rem,2.6vw,2.8rem); font-weight: 700; color: var(--white); line-height: 1.15; letter-spacing: -0.025em; margin-top: 20px; }
+.proc-intro { font-family: var(--sans); font-size: 0.9rem; font-weight: 300; color: rgba(255,255,255,0.36); line-height: 1.85; }
+.steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(255,255,255,0.04); }
+.step { background: var(--black); padding: 36px 30px 40px; position: relative; }
+.step-n { font-family: "Inter Tight", system-ui, sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; color: var(--teal); margin-bottom: 16px; }
+.step-title { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; color: var(--white); margin-bottom: 11px; }
+.step-desc { font-family: var(--sans); font-size: 0.83rem; font-weight: 300; color: rgba(255,255,255,0.38); line-height: 1.7; }
+.step-ghost { position: absolute; bottom: 8px; right: 14px; font-family: "Inter Tight", system-ui, sans-serif; font-size: 3.5rem; font-weight: 800; color: rgba(103,201,203,0.06); line-height: 1; letter-spacing: -0.04em; }
+
+/* COLLABORATION */
+#collaboration { background: var(--white); }
+.collab-top { margin-bottom: 56px; }
+.collab-h { font-family: var(--serif); font-size: clamp(2rem,2.8vw,3rem); font-weight: 700; color: var(--black); line-height: 1.15; letter-spacing: -0.025em; margin: 20px 0 14px; }
+.collab-sub { font-family: var(--sans); font-size: 0.9rem; font-weight: 300; color: var(--stone); max-width: 540px; line-height: 1.8; }
+.collab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.c-card { border: 1px solid var(--smoke); padding: 48px 44px; }
+.c-card.dark { background: var(--dark); border-color: var(--dark); }
+.c-badge { display: inline-block; font-family: var(--sans); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 5px 14px; margin-bottom: 24px; }
+.c-badge.fill { background: var(--teal); color: var(--black); }
+.c-badge.ghost { border: 1px solid var(--smoke); color: var(--stone); }
+.c-type { font-family: var(--serif); font-size: 1.7rem; font-weight: 700; margin-bottom: 8px; }
+.c-card.dark .c-type { color: var(--white); }
+.c-card:not(.dark) .c-type { color: var(--black); }
+.c-tagline { font-family: var(--sans); font-size: 0.85rem; font-weight: 300; line-height: 1.6; margin-bottom: 24px; }
+.c-card.dark .c-tagline { color: rgba(255,255,255,0.4); }
+.c-card:not(.dark) .c-tagline { color: var(--stone); }
+.c-rule { width: 30px; height: 1px; background: var(--teal); margin-bottom: 24px; }
+.c-list { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: 30px; }
+.c-list li { font-family: var(--sans); font-size: 0.84rem; font-weight: 300; line-height: 1.55; display: flex; gap: 10px; align-items: flex-start; }
+.c-card.dark .c-list li { color: rgba(255,255,255,0.46); }
+.c-card:not(.dark) .c-list li { color: var(--stone); }
+.c-list li::before { content: "???"; color: var(--teal); flex-shrink: 0; font-size: 0.76rem; margin-top: 2px; }
+
+/* PRICING */
+#pricing { background: var(--paper); }
+.price-top { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 56px; }
+.price-h { font-family: var(--serif); font-size: clamp(2rem,2.8vw,3rem); font-weight: 700; color: var(--black); line-height: 1.15; letter-spacing: -0.025em; margin-top: 20px; }
+.price-intro { font-family: var(--sans); font-size: 0.9rem; font-weight: 300; color: var(--stone); line-height: 1.85; }
+.price-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-bottom: 16px; }
+.p-card { background: var(--white); padding: 30px 26px; border-top: 2px solid transparent; transition: border-color 0.2s; display: flex; flex-direction: column; gap: 9px; }
+.p-card:hover { border-color: var(--teal); }
+.p-cat { font-family: var(--sans); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal-mid); }
+.p-name { font-family: var(--serif); font-size: 1.08rem; font-weight: 600; color: var(--black); line-height: 1.3; }
+.p-inc { font-family: var(--sans); font-size: 0.81rem; font-weight: 300; color: var(--stone); line-height: 1.6; flex: 1; }
+.p-from { font-family: var(--sans); font-size: 0.76rem; font-weight: 500; color: var(--ink); border-top: 1px solid var(--smoke); padding-top: 11px; margin-top: auto; }
+.price-note { font-family: var(--sans); font-size: 0.78rem; font-weight: 300; color: var(--stone); text-align: center; margin-top: 18px; line-height: 1.7; }
+
+/* RETAINER */
+#retainer { background: var(--dark); }
+.ret-top { margin-bottom: 56px; }
+.ret-h { font-family: var(--serif); font-size: clamp(2rem,2.8vw,3rem); font-weight: 700; color: var(--white); line-height: 1.15; letter-spacing: -0.025em; margin: 20px 0 14px; }
+.ret-sub { font-family: var(--sans); font-size: 0.88rem; font-weight: 300; color: rgba(255,255,255,0.36); max-width: 500px; line-height: 1.8; }
+.ret-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-bottom: 68px; }
+.r-plan { background: rgba(255,255,255,0.03); padding: 40px 30px; border-top: 2px solid rgba(255,255,255,0.06); position: relative; transition: background 0.2s; }
+.r-plan.hi { background: rgba(103,201,203,0.07); border-top-color: var(--teal); }
+.pop-tag { position: absolute; top: 14px; right: 14px; font-family: var(--sans); font-size: 0.57rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; background: var(--teal); color: var(--black); padding: 4px 9px; }
+.r-tier { font-family: var(--sans); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
+.r-title { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; color: var(--white); margin-bottom: 18px; line-height: 1.3; }
+.r-div { width: 24px; height: 1px; background: rgba(103,201,203,0.3); margin-bottom: 18px; }
+.r-feats { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 24px; }
+.r-feats li { font-family: var(--sans); font-size: 0.81rem; font-weight: 300; color: rgba(255,255,255,0.44); line-height: 1.5; display: flex; gap: 8px; align-items: flex-start; }
+.r-feats li::before { content: "??"; color: var(--teal); font-size: 1rem; line-height: 1; flex-shrink: 0; }
+.r-best { font-family: var(--sans); font-size: 0.75rem; font-weight: 300; color: rgba(255,255,255,0.26); line-height: 1.5; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 14px; font-style: italic; }
+.r-best span { color: rgba(255,255,255,0.5); font-style: normal; }
+.cmp-h { font-family: var(--serif); font-size: 1.4rem; font-weight: 600; color: var(--white); margin-bottom: 24px; letter-spacing: -0.01em; }
+.cmp-table { width: 100%; border-collapse: collapse; }
+.cmp-table th { font-family: var(--sans); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 12px 16px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.06); color: rgba(255,255,255,0.26); }
+.cmp-table th.me { color: var(--teal); background: rgba(103,201,203,0.04); }
+.cmp-table td { font-family: var(--sans); font-size: 0.82rem; font-weight: 300; padding: 13px 16px; color: rgba(255,255,255,0.36); border-bottom: 1px solid rgba(255,255,255,0.04); }
+.cmp-table td:first-child { font-weight: 500; color: rgba(255,255,255,0.5); font-size: 0.76rem; }
+.cmp-table td.me { color: rgba(255,255,255,0.7); background: rgba(103,201,203,0.04); }
+.cmp-table tr:hover td { background: rgba(255,255,255,0.015); }
+.cmp-table tr:hover td.me { background: rgba(103,201,203,0.07); }
+
+/* CTA */
+#cta { background: var(--black); padding: 120px 0 140px; text-align: center; position: relative; overflow: hidden; }
+.cta-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(103,201,203,0.06) 0%, transparent 65%); pointer-events: none; }
+.cta-inner { position: relative; z-index: 2; }
+.cta-h { font-family: var(--serif); font-size: clamp(3rem,6vw,7rem); font-weight: 900; color: var(--white); line-height: 1.02; letter-spacing: -0.035em; margin-bottom: 28px; }
+.cta-h em { font-style: normal; color: var(--teal); }
+.cta-body { font-family: var(--sans); font-size: 0.93rem; font-weight: 300; color: rgba(255,255,255,0.4); max-width: 460px; margin: 0 auto 44px; line-height: 1.85; }
+.cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 56px; }
+.cta-info { display: flex; justify-content: center; gap: 52px; flex-wrap: wrap; }
+.cta-item { display: flex; flex-direction: column; gap: 4px; align-items: center; }
+.cta-lbl { font-family: var(--sans); font-size: 0.59rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.22); }
+.cta-val { font-family: var(--sans); font-size: 0.88rem; font-weight: 300; color: rgba(255,255,255,0.5); }
+
+/* FOOTER */
+footer { background: var(--dark2); border-top: 1px solid rgba(255,255,255,0.06); }
+.footer-w { max-width: 1200px; margin: 0 auto; padding: 0 64px; height: 58px; display: flex; justify-content: space-between; align-items: center; }
+.footer-brand { font-family: var(--serif); font-size: 0.86rem; font-weight: 600; color: rgba(255,255,255,0.3); }
+.footer-copy { font-family: var(--sans); font-size: 0.7rem; font-weight: 300; color: rgba(255,255,255,0.18); }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font-family: var(--sans); font-size: 0.66rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.26); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--teal); }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-w">
+    <div class="nav-logo">SKJ <span>Design</span></div>
+    <ul class="nav-links"><li><a href="#services">Services</a></li><li><a href="#portfolio">Work</a></li><li><a href="#process">Process</a></li><li><a href="#pricing">Pricing</a></li></ul>
+    <a href="#cta" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-ghost">BRAND</div>
+  <div class="hero-rail"></div>
+  <div class="hero-ring1"></div><div class="hero-ring2"></div>
+  <div class="hero-body">
+    <div class="w">
+      <div class="hero-pretitle">Brand &amp; Communication Design &nbsp;&middot;&nbsp; Mumbai, India</div>
+      <div class="hero-name">Sonali Khivasara Jogi &nbsp;&middot;&nbsp; SKJ Design</div>
+      <h1 class="hero-headline">I build<br>brands that<br><span class="teal">hold.</span></h1>
+      <div class="hero-lower">
+        <p class="hero-sub">18 years of real-world brand design. Global clients. One obsession &mdash; <strong>visual systems that work across every platform, every market, and every person who touches them.</strong></p>
+        <div class="hero-ctas"><a href="#cta" class="btn btn-teal">Book a Discovery Call</a><a href="#portfolio" class="btn btn-wout">See the Work</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-svcbar"><div class="svc-bar-w"><span class="svc-tag">Brand Systems</span><span class="svc-tag">Content Design</span><span class="svc-tag">Packaging &amp; Print</span><span class="svc-tag">Digital &amp; Web</span><span class="svc-tag">Pitch Decks</span><span class="svc-tag">Campaign Design</span></div></div>
+</section>
+
+<div class="br br-bh"></div>
+
+<section id="hook"><div class="w"><div class="hook-grid">
+  <div class="hook-stmt">Your brand is your first impression, your last argument, and everything in between.</div>
+  <div class="hook-body">I make sure it lands &mdash; every single time.<br><br>Whether you&rsquo;re launching, scaling, fundraising, or rebuilding what&rsquo;s broken &mdash; the brand you show the world is <strong>the argument you&rsquo;re making without saying a word.</strong> It either works, or it doesn&rsquo;t.</div>
+</div></div></section>
+
+<div class="br br-hi"></div>
+
+<section id="insight" class="sec"><div class="w">
+  <div class="insight-top">
+    <div><div class="eb eb-stone">The Problem</div><h2 class="insight-h">Growth exposes everything.</h2></div>
+    <p class="insight-intro">When a business is small, one logo and one voice is enough. The moment you scale &mdash; new markets, new teams, new agencies, new platforms &mdash; <strong>the cracks appear. And they&rsquo;re always the same cracks.</strong></p>
+  </div>
+  <div class="crack-row">
+    <div class="crack"><div class="crack-n">01</div><p class="crack-t">Multiple logo versions in circulation, none officially approved</p></div>
+    <div class="crack"><div class="crack-n">02</div><p class="crack-t">Pitch decks that look nothing like the website</p></div>
+    <div class="crack"><div class="crack-n">03</div><p class="crack-t">Packaging that clashes with everything on social</p></div>
+    <div class="crack"><div class="crack-n">04</div><p class="crack-t">Documents full of data that nobody reads because the layout buries it</p></div>
+    <div class="crack"><div class="crack-n">05</div><p class="crack-t">Five different vendors producing five different-looking things</p></div>
+  </div>
+  <div class="insight-resolve">
+    <div class="resolve-lbl">This is not a creative problem. It&rsquo;s a systems problem.</div>
+    <p class="resolve-body">You can&rsquo;t solve a systems problem by hiring more designers. You solve it by building the right foundation &mdash; once &mdash; and making everything flow from there. <strong>That foundation is what I build.</strong></p>
+  </div>
+</div></section>
+
+<div class="br br-pd"></div>
+
+<section id="solution" class="sec"><div class="w"><div class="solution-grid">
+  <div><div class="eb eb-dark">The Solution</div><h2 class="sol-h">I don&rsquo;t just make things look good. I make them work.</h2><p class="sol-b">Design that holds at scale. Visual systems that work across every platform, every market, every person who touches them. Structured. Intentional. Built to last.</p></div>
+  <div class="pillars">
+    <div class="pillar"><div class="pil-n">01</div><div><div class="pil-name">One Foundation</div><p class="pil-text">A single, definitive visual language &mdash; logo system, colour hierarchy, typography, templates &mdash; that anyone can apply correctly without calling me every time.</p></div></div>
+    <div class="pillar"><div class="pil-n">02</div><div><div class="pil-name">Zero Friction</div><p class="pil-text">Design that removes friction for your team, your clients, your investors, and every person who encounters your brand anywhere it shows up.</p></div></div>
+    <div class="pillar"><div class="pil-n">03</div><div><div class="pil-name">Real Accountability</div><p class="pil-text">One person who thinks like a strategist, executes like a studio, and stays accountable like a business partner. From brief to final file &mdash; I own it.</p></div></div>
+  </div>
+</div></div></section>
+
+<div class="br br-dw"></div>
+
+<section id="credentials" class="sec"><div class="w">
+  <div class="cred-top">
+    <div><div class="eb eb-teal">By the Numbers</div><h2 class="cred-h">18 years of doing the actual work.</h2></div>
+    <p class="cred-body">Not agency years. Not classroom years. <strong>Factory-floor deadlines, boardroom pitches, export packaging, and annual reports</strong> that had to survive a CFO&rsquo;s attention span &mdash; across 5 continents.</p>
+  </div>
+  <div class="stats-row">
+    <div class="stat-card"><div class="stat-n">18+</div><div class="stat-desc">Years of hands-on brand design experience</div></div>
+    <div class="stat-card"><div class="stat-n">10+</div><div class="stat-desc">Industries &mdash; FMCG, pharma, tech, finance, retail, NGO and more</div></div>
+    <div class="stat-card"><div class="stat-n">100+</div><div class="stat-desc">Projects delivered &mdash; identities, reports, decks, packaging, digital, campaigns</div></div>
+    <div class="stat-card"><div class="stat-n">1</div><div class="stat-desc">Point of contact. From brief to final file &mdash; fully accountable.</div></div>
+  </div>
+  <div class="ind-row"><span class="ind-tag">FMCG</span><span class="ind-tag">Pharma</span><span class="ind-tag">Technology</span><span class="ind-tag">Finance</span><span class="ind-tag">NGO</span><span class="ind-tag">Retail</span><span class="ind-tag">Education</span><span class="ind-tag">Industrial</span><span class="ind-tag">Real Estate</span><span class="ind-tag">Healthcare</span></div>
+</div></section>
+
+<div class="br br-wb"></div>
+
+<section id="origin" class="sec"><div class="w">
+  <div class="origin-glow"></div>
+  <div class="origin-grid">
+    <div><div class="eb eb-dark">The Story</div><h2 class="origin-title">I didn&rsquo;t learn design in a classroom.</h2></div>
+    <div class="origin-paras">
+      <p>I learned it under pressure. Global teams. Impossible deadlines. Packaging that had to survive a factory floor and still sell on a supermarket shelf. Investor decks that had one shot in a boardroom. Reports that had to make a CFO stop, read, and care.</p>
+      <p>I spent 18 years doing the work that most designers talk about. FMCG. Pharma. Tech. Finance. NGOs. Retail. And along the way I learned something no design school teaches: <strong>the brands that win aren&rsquo;t the prettiest ones. They&rsquo;re the most consistent ones.</strong></p>
+      <p>Consistency is not about templates. It&rsquo;s about having a system &mdash; a visual language with rules, logic, and structure &mdash; that holds no matter who touches it or where it shows up next.</p>
+      <p>I&rsquo;ve watched brands fall apart when they scaled. I&rsquo;ve also watched what happens when a brand is built right from the start &mdash; <strong>how teams move faster, clients trust more, and everything just looks like it came from the same brilliant mind.</strong></p>
+      <div class="origin-pull"><p>&ldquo;I build that. For businesses that are ready to look as serious as they are.&rdquo;</p></div>
+    </div>
+  </div>
+</div></section>
+
+<div class="br br-bp"></div>
+
+<section id="why-me" class="sec"><div class="w">
+  <div class="whyme-top">
+    <div><div class="eb eb-stone">Why Me</div><h2 class="whyme-h">I&rsquo;m not an agency. I&rsquo;m better.</h2></div>
+    <p class="whyme-intro">When you hire an agency, you brief one person and someone else builds it. When you hire a generalist, you get execution without strategy. <strong>I offer something the market rarely provides:</strong> a senior designer who thinks like a strategist, executes like a studio, and stays accountable like a business partner.</p>
+  </div>
+  <div class="wm-grid">
+    <div class="wm-card"><div class="wm-n">01</div><div><div class="wm-title">You talk to the person doing the work &mdash; always</div><p class="wm-text">No account managers, no briefing chains, no nuance lost in translation.</p></div></div>
+    <div class="wm-card"><div class="wm-n">02</div><div><div class="wm-title">I understand your brand deeply, not just the brief in front of me</div><p class="wm-text">The longer we work together, the smarter and faster every piece of work becomes.</p></div></div>
+    <div class="wm-card"><div class="wm-n">03</div><div><div class="wm-title">I challenge ideas that won&rsquo;t work, not just ones that look bad</div><p class="wm-text">My value isn&rsquo;t execution alone. It&rsquo;s the thinking that shapes what gets executed.</p></div></div>
+    <div class="wm-card"><div class="wm-n">04</div><div><div class="wm-title">One person. Full accountability. No handovers. No surprises.</div><p class="wm-text">I bring in specialists when needed &mdash; but I own the output, always.</p></div></div>
+  </div>
+</div></section>
+
+<div class="br br-p2"></div>
+
+<section id="services" class="sec"><div class="w">
+  <div class="svc-header"><div><div class="eb eb-dark">Services</div><h2 class="svc-h">What I do</h2></div><p class="svc-intro">Six disciplines. One consistent standard. Every service is built on the same foundation: design that removes friction, holds at scale, and looks intentional everywhere.</p></div>
+  <div class="svc-grid">
+    <div class="svc-card"><div class="svc-n">01</div><h3 class="svc-name">Brand Systems</h3><p class="svc-desc">Logo systems, colour hierarchy, typography, icon libraries, brand guidelines, and templates built so anyone can stay on brand without calling me every time.</p></div>
+    <div class="svc-card"><div class="svc-n">02</div><h3 class="svc-name">Content Design</h3><p class="svc-desc">Annual reports, investor decks, pitch presentations, board documents. Complex, dense information turned into visual communication that actually gets read.</p></div>
+    <div class="svc-card"><div class="svc-n">03</div><h3 class="svc-name">Packaging &amp; Print</h3><p class="svc-desc">Retail packaging, export-compliant labels, dieline-ready artwork, POS material, catalogues, brochures. Designed for real-world production &mdash; not just Behance.</p></div>
+    <div class="svc-card"><div class="svc-n">04</div><h3 class="svc-name">Digital &amp; Web</h3><p class="svc-desc">Website design, landing pages, UI/UX for digital products, email templates, social media systems. Consistent, conversion-focused, built to scale.</p></div>
+    <div class="svc-card"><div class="svc-n">05</div><h3 class="svc-name">Pitch &amp; Investor Decks</h3><p class="svc-desc">Decks that make investors lean forward. Clear narrative structure, sharp visual hierarchy, and a presentation that looks as serious as the business behind it.</p></div>
+    <div class="svc-card"><div class="svc-n">06</div><h3 class="svc-name">Campaign &amp; Marketing</h3><p class="svc-desc">Campaign identity, art direction, product launch collateral, display advertising. The same brand, expressed powerfully across every channel.</p></div>
+  </div>
+</div></section>
+
+<div class="br br-2w"></div>
+
+<section id="skills" class="sec"><div class="w">
+  <div class="skills-top"><div class="eb eb-teal">How I Think</div><h2 class="skills-h">Design is only as good as the thinking that shaped it.</h2><p class="skills-note">Not just what I make &mdash; but how I make it matter.</p></div>
+  <div class="skill-grid">
+    <div class="skill-item"><div class="skill-lbl">Brand Strategy Thinking</div><p class="skill-text">Before I design anything, I ask what the brand needs to say. Positioning, tone, visual language &mdash; these aren&rsquo;t separate conversations. They inform each other.</p></div>
+    <div class="skill-item"><div class="skill-lbl">Systems Architecture</div><p class="skill-text">I build design systems with logic. Defined rules for colour, type, layout, imagery, and spacing &mdash; so the brand works as a whole, not a collection of one-off pieces.</p></div>
+    <div class="skill-item"><div class="skill-lbl">Content Simplification</div><p class="skill-text">I take complex source material &mdash; dense reports, strategy documents, raw data &mdash; and restructure it into visual communication that earns attention and communicates clearly.</p></div>
+    <div class="skill-item"><div class="skill-lbl">Production Intelligence</div><p class="skill-text">I know print specs, packaging dielines, digital formats, and platform requirements. My work doesn&rsquo;t just look good in a design file. It survives the real world.</p></div>
+    <div class="skill-item"><div class="skill-lbl">Stakeholder Fluency</div><p class="skill-text">I translate design decisions into business language. I present confidently, handle feedback constructively, and keep projects moving even when opinions diverge.</p></div>
+    <div class="skill-item"><div class="skill-lbl">Cross-Platform Integrity</div><p class="skill-text">From an investor deck to a product label to a social post to a billboard &mdash; I design brands that look intentional everywhere.</p></div>
+  </div>
+</div></section>
+
+<div class="br br-wt"></div>
+
+<section id="right-fit" class="sec"><div class="w">
+  <div class="fit-top">
+    <div><div class="eb eb-teal-bg">The Right Fit</div><h2 class="fit-h">The moments when I&rsquo;m most valuable</h2></div>
+    <p class="fit-intro">I do my best work when the stakes are high and the brief is real. These are the moments my clients come to me for.</p>
+  </div>
+  <div class="fit-grid">
+    <div class="fit-item"><div class="fit-arrow">&#8594;</div><p class="fit-text">Launching a new brand that needs to hold across markets, media, and time</p></div>
+    <div class="fit-item"><div class="fit-arrow">&#8594;</div><p class="fit-text">Scaling fast and needing design infrastructure that keeps pace without breaking</p></div>
+    <div class="fit-item"><div class="fit-arrow">&#8594;</div><p class="fit-text">Fundraising and needing a deck that commands a room and closes conversations</p></div>
+    <div class="fit-item"><div class="fit-arrow">&#8594;</div><p class="fit-text">Rebranding after outgrowing what existed &mdash; or after a merger, pivot, or expansion</p></div>
+    <div class="fit-item"><div class="fit-arrow">&#8594;</div><p class="fit-text">Consolidating scattered vendors and inconsistent assets into one coherent system</p></div>
+    <div class="fit-item"><div class="fit-arrow">&#8594;</div><p class="fit-text">Launching a product that needs to look polished, premium, and completely on-brand</p></div>
+    <div class="fit-item"><div class="fit-arrow">&#8594;</div><p class="fit-text">Publishing a report or document that actually needs to be read &mdash; not filed away</p></div>
+    <div class="fit-item" style="background:rgba(0,0,0,0.13)"><div class="fit-arrow" style="font-family:var(--serif);font-style:italic;font-weight:500;font-size:.92rem;opacity:1">Any of these sound like yours?</div><p class="fit-text" style="font-weight:600;color:rgba(0,0,0,0.75)">Then we should talk.</p></div>
+  </div>
+  <div class="fit-cta"><p>Let&rsquo;s build something serious.</p><a href="#cta" class="btn btn-black">Start with a 30-Minute Call</a></div>
+</div></section>
+
+<div class="br br-tp"></div>
+
+<section id="portfolio" class="sec"><div class="w">
+  <div class="port-top"><div><div class="eb eb-stone">Selected Work</div><h2 class="port-h">Work that earned its place here.</h2></div><p class="port-sub">Selected projects across brand identity, content design, packaging, digital, and pitch decks. Every brief. Every problem. Every outcome.</p></div>
+  <div class="port-grid">
+    <div class="port-card"><div class="port-img"><div class="port-img-in"><div class="port-icon">&#9672;</div><div class="port-icon-lbl">Work Sample</div></div></div><div class="port-body"><div class="port-cat">Brand Identity</div><div class="port-name">Client Name</div><div class="port-ind">Consumer Goods / FMCG</div><p class="port-out">Full brand audit and identity rebuild. One definitive logo system. Colour hierarchy with rules, not suggestions. Vendor-ready files included.</p></div></div>
+    <div class="port-card"><div class="port-img"><div class="port-img-in"><div class="port-icon">&#9672;</div><div class="port-icon-lbl">Work Sample</div></div></div><div class="port-body"><div class="port-cat">Content Design</div><div class="port-name">Client Name</div><div class="port-ind">Financial Services / Corporate</div><p class="port-out">Annual report restructured for clarity &mdash; content architecture first, design second. Adopted as the template for following years.</p></div></div>
+    <div class="port-card"><div class="port-img"><div class="port-img-in"><div class="port-icon">&#9672;</div><div class="port-icon-lbl">Work Sample</div></div></div><div class="port-body"><div class="port-cat">Packaging</div><div class="port-name">Client Name</div><div class="port-ind">FMCG / Retail / Export</div><p class="port-out">Full packaging design from concept to dieline-ready artwork. Zero artwork rejections at print.</p></div></div>
+    <div class="port-card"><div class="port-img"><div class="port-img-in"><div class="port-icon">&#9672;</div><div class="port-icon-lbl">Work Sample</div></div></div><div class="port-body"><div class="port-cat">Pitch Deck</div><div class="port-name">Client Name</div><div class="port-ind">Tech Startup / Healthcare</div><p class="port-out">Narrative restructured before a single slide was designed. Deal closed after the first meeting.</p></div></div>
+    <div class="port-card"><div class="port-img"><div class="port-img-in"><div class="port-icon">&#9672;</div><div class="port-icon-lbl">Work Sample</div></div></div><div class="port-body"><div class="port-cat">Digital &amp; Web</div><div class="port-name">Client Name</div><div class="port-ind">Technology / SaaS</div><p class="port-out">Clean, structured website with a full component design system. Built to hand off to a developer without ambiguity.</p></div></div>
+    <div class="port-card"><div class="port-img"><div class="port-img-in"><div class="port-icon">&#9672;</div><div class="port-icon-lbl">Work Sample</div></div></div><div class="port-body"><div class="port-cat">Campaign</div><div class="port-name">Client Name</div><div class="port-ind">Retail / Consumer Tech</div><p class="port-out">One campaign identity across print, digital, outdoor, and social. Every touchpoint planned from the same room, on the same day.</p></div></div>
+  </div>
+</div></section>
+
+<div class="br br-pb"></div>
+
+<section id="process" class="sec"><div class="w">
+  <div class="proc-top"><div><div class="eb eb-dark">Process</div><h2 class="proc-h">What working with me looks like</h2></div><p class="proc-intro">No ambiguity. No guessing. No disappearing act after the final file lands. Every engagement follows a clear, structured process that keeps us moving forward &mdash; not in circles.</p></div>
+  <div class="steps">
+    <div class="step"><div class="step-n">STEP 01</div><h3 class="step-title">Discovery Call</h3><p class="step-desc">30 minutes. I ask the questions most designers skip &mdash; what you need, what&rsquo;s not working, what success looks like, and what&rsquo;s happened before.</p><div class="step-ghost">01</div></div>
+    <div class="step"><div class="step-n">STEP 02</div><h3 class="step-title">Brief &amp; Scope</h3><p class="step-desc">I write it down. Clear objectives, deliverables, timeline, and investment. We agree before anything starts. No ambiguity, no surprise scope creep.</p><div class="step-ghost">02</div></div>
+    <div class="step"><div class="step-n">STEP 03</div><h3 class="step-title">One Direction</h3><p class="step-desc">I don&rsquo;t show you three options and ask you to choose. One well-reasoned direction, built from the brief, backed by thinking. Then we refine.</p><div class="step-ghost">03</div></div>
+    <div class="step"><div class="step-n">STEP 04</div><h3 class="step-title">Design &amp; Iteration</h3><p class="step-desc">Structured feedback rounds. Decisions documented. Revisions tracked. We move forward &mdash; not in circles.</p><div class="step-ghost">04</div></div>
+    <div class="step"><div class="step-n">STEP 05</div><h3 class="step-title">Delivery &amp; Handoff</h3><p class="step-desc">Production-ready files, organised and clearly labelled. Brand documentation updated as we go. No disappearing act after the final file lands.</p><div class="step-ghost">05</div></div>
+    <div class="step"><div class="step-n">STEP 06</div><h3 class="step-title">Ongoing (Retainer)</h3><p class="step-desc">Monthly check-in. Priorities set. The brand gets stronger &mdash; and so does our speed of working together.</p><div class="step-ghost">06</div></div>
+  </div>
+</div></section>
+
+<div class="br br-bw"></div>
+
+<section id="collaboration" class="sec"><div class="w">
+  <div class="collab-top"><div class="eb eb-teal">Engagement</div><h2 class="collab-h">Two ways to work with me</h2><p class="collab-sub">Choose based on what your business needs right now &mdash; a defined project, or an ongoing design partnership that gets smarter every month.</p></div>
+  <div class="collab-grid">
+    <div class="c-card"><div class="c-badge ghost">Project-Based</div><h3 class="c-type">For Defined Work</h3><p class="c-tagline">Time-bound. Scoped clearly. Fully executed from brief to final file.</p><div class="c-rule"></div><ul class="c-list"><li>Best for brand identity, packaging, pitch decks, reports, and websites</li><li>Fixed scope with agreed deliverables and timeline</li><li>No surprise scope creep</li><li>Full execution &mdash; one point of contact throughout</li></ul><a href="#cta" class="btn btn-dout">Start a Project</a></div>
+    <div class="c-card dark"><div class="c-badge fill">Recommended</div><h3 class="c-type">Monthly Retainer</h3><p class="c-tagline">For businesses that produce design regularly and need consistency, speed, and a partner who knows the brand inside out.</p><div class="c-rule"></div><ul class="c-list"><li>Monthly priority support &mdash; I become an extension of your team</li><li>Without the overhead of a full-time hire</li><li>The longer we work together, the faster and better the output</li><li>Compounding brand knowledge &mdash; every month builds on the last</li></ul><a href="#cta" class="btn btn-teal">Enquire About Retainer</a></div>
+  </div>
+</div></section>
+
+<div class="br br-wp"></div>
+
+<section id="pricing" class="sec"><div class="w">
+  <div class="price-top"><div><div class="eb eb-stone">Investment</div><h2 class="price-h">Project Investment Guide</h2></div><p class="price-intro">Every project is scoped based on complexity, timeline, and deliverables. The ranges below are starting points &mdash; not ceilings. Rush timelines and multi-market scope are priced separately.</p></div>
+  <div class="price-grid">
+    <div class="p-card"><div class="p-cat">01 &mdash; Identity</div><div class="p-name">Brand Identity System</div><p class="p-inc">Logo system, colour, typography, brand guidelines, core templates</p><div class="p-from">Starting from: On enquiry</div></div>
+    <div class="p-card"><div class="p-cat">02 &mdash; Content</div><div class="p-name">Annual Report / Corporate Publication</div><p class="p-inc">Layout design, infographics, data visualisation, production-ready files</p><div class="p-from">Starting from: On enquiry</div></div>
+    <div class="p-card"><div class="p-cat">03 &mdash; Decks</div><div class="p-name">Pitch Deck / Investor Deck</div><p class="p-inc">Narrative structuring, slide design, data visualisation, final presentation file</p><div class="p-from">Starting from: On enquiry</div></div>
+    <div class="p-card"><div class="p-cat">04 &mdash; Packaging</div><div class="p-name">Packaging Design</div><p class="p-inc">Concept, artwork, dieline-ready production files, print specifications</p><div class="p-from">Starting from: On enquiry</div></div>
+    <div class="p-card"><div class="p-cat">05 &mdash; Digital</div><div class="p-name">Website Design</div><p class="p-inc">UI design, responsive layouts, component library, developer handoff</p><div class="p-from">Starting from: On enquiry</div></div>
+    <div class="p-card"><div class="p-cat">06 &mdash; Campaign</div><div class="p-name">Campaign Design</div><p class="p-inc">Key visual, art direction, adapted collateral across formats</p><div class="p-from">Starting from: On enquiry</div></div>
+  </div>
+  <p class="price-note">All projects include structured feedback rounds and final file delivery in agreed formats.</p>
+</div></section>
+
+<div class="br br-pd2"></div>
+
+<section id="retainer" class="sec"><div class="w">
+  <div class="ret-top"><div class="eb eb-dark">Retainer</div><h2 class="ret-h">Monthly Retainer Packages</h2><p class="ret-sub">For businesses that need consistent, high-quality design every month &mdash; without agency overhead. Rolling monthly basis, minimum 3-month commitment.</p></div>
+  <div class="ret-grid">
+    <div class="r-plan"><div class="r-tier">Essential</div><div class="r-title">For startups and growing teams building brand presence</div><div class="r-div"></div><ul class="r-feats"><li>2 active projects per month</li><li>2 structured feedback rounds per project</li><li>48hr turnaround on standard requests</li><li>Priority access over ad hoc work</li></ul><div class="r-best"><span>Best for:</span> Social content, presentation updates, marketing collateral</div></div>
+    <div class="r-plan hi"><div class="pop-tag">Most Popular</div><div class="r-tier">Growth</div><div class="r-title">For established businesses scaling across channels and markets</div><div class="r-div"></div><ul class="r-feats"><li>4 active projects per month</li><li>Unlimited feedback rounds</li><li>24hr turnaround on requests</li><li>Quarterly brand audit included</li><li>Brand documentation updated ongoing</li></ul><div class="r-best"><span>Best for:</span> Campaigns, reports, packaging, digital assets, and brand management</div></div>
+    <div class="r-plan"><div class="r-tier">Partner</div><div class="r-title">For businesses that want design embedded in their operations</div><div class="r-div"></div><ul class="r-feats"><li>Unlimited projects</li><li>Priority same-day turnaround</li><li>Monthly strategy check-in</li><li>Full brand documentation updates</li><li>Deepest brand knowledge, built over time</li></ul><div class="r-best"><span>Best for:</span> High-volume, high-stakes design across multiple formats and markets</div></div>
+  </div>
+  <div class="cmp-h">Why a retainer beats everything else</div>
+  <table class="cmp-table">
+    <thead><tr><th></th><th class="me">Me (Retainer)</th><th>Design Agency</th><th>In-house Designer</th><th>Ad Hoc Freelancer</th></tr></thead>
+    <tbody>
+      <tr><td>Brand knowledge</td><td class="me">Deep and compounding</td><td>Rebrief every project</td><td>Strong over time</td><td>Starts from zero</td></tr>
+      <tr><td>Turnaround</td><td class="me">Fast &mdash; 24&ndash;48hr</td><td>Slow &mdash; layers of approval</td><td>Immediate</td><td>Unpredictable</td></tr>
+      <tr><td>Cost</td><td class="me">Fixed monthly</td><td>High, variable</td><td>Salary + benefits</td><td>Variable, no guarantee</td></tr>
+      <tr><td>Strategic input</td><td class="me">Included</td><td>Extra cost</td><td>Depends on seniority</td><td>Rarely offered</td></tr>
+      <tr><td>Accountability</td><td class="me">Single point of contact</td><td>Account manager + team</td><td>Internal only</td><td>Limited</td></tr>
+      <tr><td>Scalability</td><td class="me">Scales with your needs</td><td>Scales expensively</td><td>Fixed capacity</td><td>Inconsistent quality</td></tr>
+    </tbody>
+  </table>
+</div></section>
+
+<div class="br br-dd"></div>
+
+<section id="cta">
+  <div class="cta-glow"></div>
+  <div class="cta-inner w">
+    <div class="eb eb-dark eb-center">Ready to build something serious</div>
+    <h2 class="cta-h">Let&rsquo;s build a brand<br>that <em>holds.</em></h2>
+    <p class="cta-body">Book a 30-minute discovery call. No pitch. No pressure. Just a real conversation about what you&rsquo;re building and whether I&rsquo;m the right person to help.</p>
+    <div class="cta-btns"><a href="mailto:sonali.gkj@gmail.com" class="btn btn-teal">Book a Discovery Call</a><a href="mailto:sonali.gkj@gmail.com" class="btn btn-wout">Email Me</a><a href="https://wa.me/919819515280" class="btn btn-wout">WhatsApp</a></div>
+    <div class="cta-info">
+      <div class="cta-item"><div class="cta-lbl">Email</div><div class="cta-val">sonali.gkj@gmail.com</div></div>
+      <div class="cta-item"><div class="cta-lbl">WhatsApp</div><div class="cta-val">+91 98195 15280</div></div>
+      <div class="cta-item"><div class="cta-lbl">Based in</div><div class="cta-val">Mumbai, India</div></div>
+      <div class="cta-item"><div class="cta-lbl">Clients across</div><div class="cta-val">5 continents</div></div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="footer-w"><div class="footer-brand">Sonali Khivasara Jogi &mdash; SKJ Design</div><div class="footer-copy">&copy; 2025 SKJ Design. All rights reserved.</div><div class="footer-links"><a href="mailto:sonali.gkj@gmail.com">Email</a><a href="https://wa.me/919819515280">WhatsApp</a><a href="#">LinkedIn</a></div></div></footer>
+
+</body>
+</html>
